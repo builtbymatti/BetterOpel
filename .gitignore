@@ -1,0 +1,38 @@
+# Builds and local tooling
+build/
+.build/
+DerivedData/
+.xcodebuildmcp/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+Technor-*.otf
+
+# Local configuration, credentials, signing material and vehicle data
+.env
+.env.*
+!.env.example
+config.local.*
+*.p12
+*.p8
+*.mobileprovision
+*.provisionprofile
+*.key
+*.pem
+*.log
+*.db
+*.db-*
+*.sqlite*
+Server/data/
+Server/venv/
+Server/config.json
+Server/warmups.json
+*.xcarchive
+
+# Personal captures; curated demo images live in Design/Screens
+captures/
+*.mp4
+*.mov

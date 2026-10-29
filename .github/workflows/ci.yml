@@ -1,0 +1,38 @@
+name: Build and privacy checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  repository:
+    name: Privacy and demo transport
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Review tracked files for private data
+        run: python3 scripts/privacy_check.py
+      - name: Run privacy guard and fake-server regression tests
+        run: python3 -m unittest discover -s tests -v
+
+  simulator:
+    name: SwiftUI app and widget extension
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show toolchain
+        run: xcodebuild -version
+      - name: Build without signing or vehicle credentials
+        run: |
+          xcodebuild -project BetterOpel.xcodeproj -scheme BetterOpel \
+            -configuration Debug -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build CODE_SIGNING_ALLOWED=NO build

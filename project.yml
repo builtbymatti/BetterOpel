@@ -1,0 +1,108 @@
+name: BetterOpel
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "26.1"
+  createIntermediateGroups: true
+  generateEmptyDirectories: false
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+targets:
+  BetterOpel:
+    type: application
+    platform: iOS
+    sources:
+      - path: BetterOpel
+        excludes:
+          - "Resources/AppIcon.icon"
+          - "Info.plist"
+          - "*.entitlements"
+      - path: BetterOpel/Resources/AppIcon.icon
+        type: file
+        buildPhase: resources
+      - path: Shared
+    info:
+      path: BetterOpel/Info.plist
+      properties:
+        CFBundleDisplayName: BetterOpel
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIAppFonts:
+          - Oxanium-Regular.ttf
+          - Oxanium-Medium.ttf
+          - Oxanium-SemiBold.ttf
+          - Oxanium-Bold.ttf
+        NSSupportsLiveActivities: true
+        NSLocalNetworkUsageDescription: BetterOpel talks to the car server on your home network.
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+        INAlternativeAppNames:
+          - INAlternativeAppName: Opel
+            INAlternativeAppNamePronunciationHint: oh pel
+        NSSupportsLiveActivitiesFrequentUpdates: true
+        ITSAppUsesNonExemptEncryption: false
+    entitlements:
+      path: BetterOpel/BetterOpel.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.example.betteropel
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.betteropel
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: NO
+    dependencies:
+      - target: BetterOpelWidgets
+        embed: true
+  BetterOpelWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: BetterOpelWidgets
+        excludes:
+          - "Info.plist"
+          - "*.entitlements"
+      - path: Shared
+      - path: BetterOpel/Resources/Fonts
+        buildPhase: resources
+    info:
+      path: BetterOpelWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: BetterOpel
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+        UIAppFonts:
+          - Oxanium-Regular.ttf
+          - Oxanium-Medium.ttf
+          - Oxanium-SemiBold.ttf
+          - Oxanium-Bold.ttf
+    entitlements:
+      path: BetterOpelWidgets/BetterOpelWidgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.example.betteropel
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.betteropel.widgets
+        TARGETED_DEVICE_FAMILY: "1"
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES
+schemes:
+  BetterOpel:
+    build:
+      targets:
+        BetterOpel: all
+        BetterOpelWidgets: all
+    run:
+      config: Debug
