@@ -1,5 +1,7 @@
 # Assets and acknowledgements
 
+The root MIT license applies to original project code and documentation. The third-party material below retains its own rights and licenses.
+
 - **Oxanium**, by Severin Meyer / The Oxanium Project Authors, is bundled unmodified under the [SIL Open Font License 1.1](BetterOpel/Resources/Fonts/OFL.txt). Source: https://github.com/sevmeyer/oxanium at commit `a8f39e0c71186190027a093e9001459410192d1e`. These font files are not covered by the repository's MIT license.
 - **Technor**, by Indian Type Foundry, appears in the earlier demo screenshots. Its font binaries and license file are not redistributed in this public copy.
 - **Opel and the Blitz emblem** are trademarks of their respective owners. The emblem geometry was redrawn from the Wikimedia Commons reference “Opel logo 2023.svg”. The reference SVG is preserved in `Design/`. No trademark rights are granted by the source-code license.
