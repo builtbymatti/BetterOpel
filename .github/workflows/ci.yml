@@ -14,10 +14,10 @@ concurrency:
 jobs:
   repository:
     name: Privacy and demo transport
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Review tracked files for private data
         run: python3 scripts/privacy_check.py
       - name: Run privacy guard and fake-server regression tests
@@ -28,7 +28,7 @@ jobs:
     runs-on: macos-26
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Show toolchain
         run: xcodebuild -version
       - name: Build without signing or vehicle credentials
