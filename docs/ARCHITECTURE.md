@@ -45,7 +45,7 @@ scripts/              portable build, demo capture and privacy guard
 
 ## Rendering
 
-SwiftUI composes the screens and Metal handles small, targeted visual effects through `colorEffect` and `layerEffect`. The shaders cover studio lighting, flowing energy, planned-charge hatch, airflow, body lighting, battery ripple and the refresh lens. Generated vehicle renders are ordinary bundled assets.
+SwiftUI composes the screens and Metal handles small, targeted visual effects through `colorEffect` and `layerEffect`. The shaders cover studio lighting, flowing energy, the planned-charge hatch, cabin airflow, the touch ripple, the refresh lens, the worn stale reading, the liquid limit marker, the week ink and the ready-by warm band. Generated vehicle renders are ordinary bundled assets.
 
 ## Connection boundary
 

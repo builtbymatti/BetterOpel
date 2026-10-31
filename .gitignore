@@ -32,7 +32,7 @@ Server/config.json
 Server/warmups.json
 *.xcarchive
 
-# Personal captures; curated demo images live in Design/Screens
+# Personal captures; curated media lives in docs/media
 captures/
 *.mp4
 *.mov

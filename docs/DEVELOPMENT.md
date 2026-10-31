@@ -42,6 +42,13 @@ Debug launch options:
 | `-tab car\|charge\|climate\|trips` | Select an initial tab. |
 | `-theme volt\|copper\|petrol` | Select a complete colourway. |
 | `-guide widgets\|shortcuts` | Open the corresponding guide. |
+| `-parked` | Start the demo car unplugged, so nothing ticks during a capture. |
+| `-climatePhase sending\|waking\|running\|ready` | Hold the climate screen in one state. |
+| `-warmUp edit\|new` | Open the ready-by editor directly. |
+| `-stale 70` | Age the range reading by 70 minutes. |
+| `-autoRefresh 3` | Refresh three seconds after launch. |
+| `-refreshDelay 2` | Keep the demo car silent for two seconds on a refresh. |
+| `-lensAt 0.4` | Freeze the refresh lens 0.4 s after it starts (add `-lensAnswerAt` or `-lensFailAt` for the endings). |
 
 Network-development arguments are documented with the [optional server](../Server/README.md). Do not use them for public captures.
 
@@ -61,7 +68,7 @@ Before publishing this snapshot:
 - Replaced non-redistributable Technor binaries with unmodified OFL-licensed Oxanium.
 - Checked curated PNG integrity, metadata and visible content. Excluded a truncated dark-mode montage and the connection-settings capture.
 
-The supplied gallery comes from an earlier demo build. No fresh runtime walkthrough, physical-device session or real-car command test was performed for this public snapshot. In particular, hardware haptics, Siri, VoiceOver and every widget/Control Center configuration remain outside the current verification scope.
+The images and clips in `docs/media` were captured from the current build in the iPhone 17 Pro simulator, Volt light unless a colourway is the subject, with `-resetDemo -server none` and, for the refresh and climate takes, `-parked`. That capture build used Technor; the public build ships Oxanium. Siri, VoiceOver and every widget and Control Center configuration have not been audited for this snapshot.
 
 To repeat the repository checks:
 

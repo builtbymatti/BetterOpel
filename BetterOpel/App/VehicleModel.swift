@@ -99,6 +99,13 @@ final class VehicleModel {
             SnapshotStore.reset()
             DemoWarmUps.reset()
         }
+        // `-parked` starts the demo car unplugged, so nothing ticks during a capture.
+        if arguments.contains("-parked") {
+            var parked = SnapshotStore.load()
+            parked.charging.status = .disconnected
+            parked.charging.powerKW = 0
+            SnapshotStore.save(parked)
+        }
         // `-theme copper` picks a colourway.
         if let index = arguments.firstIndex(of: "-theme"), arguments.indices.contains(index + 1),
            let theme = AppTheme(rawValue: arguments[index + 1]) {
